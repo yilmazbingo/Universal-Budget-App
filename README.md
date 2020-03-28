@@ -31,4 +31,9 @@ Filtering and sorting function in /src/selector/expenses.js
 
             //When the sort() method compares two values, it sends the values to the compare function, and sorts the values according to the returned (negative, zero, positive) value.
             //1 and -1 are used to indicate minus or posive
-            //if it is
+            
+ First, filtering the expenses array. expenses is array of objects. *filter()* on arrays will create an empty array, will go over each element of the array, and call a callback function for each element. if that callback function returns true, that given element will be concatenated to the empty array. 
+ 
+ the reason for checking typeOf startDate and endDate is, if they are not number, that expression will return true. filter method retuns array and we can apply sort method on new array. sort() also returns array.
+ 
+ sort() will pass given arguments to compare function. `compare(a,b)` will compare "a" and "b" by subtracting them. If a-b is negative "a" will come first. So logic is if compare() returns negative value first value first value comes on top. Thats why in the above example, if it returns 1, it means second argument will come on top. 
