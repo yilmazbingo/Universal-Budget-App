@@ -1,5 +1,5 @@
 # Universal-Budget-App
-redux store, favicon, normalize.css are integrated to [my repo](https://github.com/yilmazbingo/Universal-Javascript-with-react-node-webpack-/tree/async-js/css-chunkLoading)
+redux store, favicon, normalize.css are integrated to [my othe repo](https://github.com/yilmazbingo/Universal-Javascript-with-react-node-webpack-/tree/async-js/css-chunkLoading)
 
 Filtering and sorting function in /src/selector/expenses.js
 
