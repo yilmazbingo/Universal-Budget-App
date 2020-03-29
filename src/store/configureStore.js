@@ -8,7 +8,7 @@ export default () => {
       expenses: expensesReducer,
       filters: filtersReducer
     }),
-    {}
+    window.INITIAL_STATE
   );
 
   return store;
