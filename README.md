@@ -100,5 +100,5 @@ our form lives inside /src/components/ExpensePage. this class based compoenent e
 
  we are telling that connect to the store, get the expenses array and the filters obhect from the store, pass those as the arguments to the filteredExpenses() which is in /src/selectors/expenses.js. this funstion returns an array of the expense objects and we render each of them on the dashboard. So after you submit the form successfully, if you check the home page, you should see the submitted info on the screen..
  
- **NOTE** so far I been just focusing on the functionality. 
+ 
 
