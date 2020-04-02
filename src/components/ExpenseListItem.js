@@ -8,9 +8,12 @@ const ExpenseListItem = ({ id, description, amount, createdAt, dispatch }) => {
   console.log("props in exonese list");
   return (
     <div>
-      <a href={`/edit/${id}`}>
-        <h3>{description}</h3>
-      </a>
+//       <a href={`/edit/${id}`}>
+//         <h3>{description}</h3>
+//       </a>
+        <Link href={`/edit/${id}`}>
+           <h3>{description}</h3>
+       </Link>
 
       <p>
         {amount}-{createdAt}
