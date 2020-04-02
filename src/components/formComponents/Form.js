@@ -11,21 +11,25 @@ import "react-dates/lib/css/_datepicker.css";
 
 //------REUSABLE PART OF THE FORM
 export default class Form extends React.Component {
-  state = {
-    createdAt: moment(),
-    focused: false,
-    form: {
-      description: "",
-      note: "",
-      amount: ""
-    },
-    errors: {}
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      createdAt: this.props.expense
+        ? moment(this.props.expense.createdAt)
+        : moment(),
+      focused: false,
+      form: {
+        description: this.props.expense ? this.props.expense.description : "",
+        note: this.props.expense ? this.props.expense.note : "",
+        amount: this.props.expense ? this.props.expense.amount : ""
+      },
+      errors: {}
+    };
+  }
 
   handleSubmit = e => {
     e.preventDefault();
     const errors = this.validate();
-
     this.setState(() => ({ errors: errors || {} }));
     if (errors)
       alert(`form cannot be submitted becase of ${this.state.errors}`);
@@ -41,9 +45,7 @@ export default class Form extends React.Component {
   validateProperty = ({ name, value }) => {
     console.log("this.props", this.props);
     const object = { [name]: value };
-
     const schema = this.schema.extract([name]);
-
     const { error } = schema.validate(object);
     console.log("error from property", error);
     return error ? error.details[0].message : null;
@@ -51,8 +53,6 @@ export default class Form extends React.Component {
   validate = () => {
     const options = { abortEarly: false };
     const { error } = this.schema.validate(this.state.form, options);
-    console.log("error from validate", error);
-
     if (!error) return null;
     const errors = {};
     for (let item of error.details) {

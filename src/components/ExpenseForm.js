@@ -19,10 +19,8 @@ class ExpenseForm extends Form {
       .max(100)
       .label("Note")
   });
-  onSubmit = this.props.onSubmit;
   render() {
-    // console.log(this.props);
-    console.log("schema changed", this.schema);
+    console.log("props for expense form", this.props);
     return (
       <div>
         <form action="" onSubmit={this.handleSubmit}>

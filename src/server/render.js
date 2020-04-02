@@ -11,14 +11,17 @@ import createStore from "./store";
 
 // import uuid from "uuid";
 console.log(createStore());
-import { flushChunkNames } from "react-universal-component/server";
+import { flushChunkNames, clearChunks } from "react-universal-component/server";
 
 export default ({ clientStats }) => (req, res) => {
+  const context = {};
+  console.log("contextttt", context);
+  clearChunks();
   const store = createStore();
 
   const app = renderToString(
     <Provider store={store}>
-      <StaticRouter location={req.path} context={{}}>
+      <StaticRouter location={req.path} context={context}>
         <div>
           <Favicon url={img} />
           <Routes />

@@ -47,7 +47,8 @@ module.exports = {
     hot: true,
     stats: {
       colors: true
-    }
+    },
+    historyApiFallback: true
   },
   module: {
     rules: [
