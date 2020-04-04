@@ -14,8 +14,8 @@ module.exports = {
       "react-hot-loader/patch",
       //   "regenerator-runtime/runtime",
       "webpack-hot-middleware/client?reload=true",
-      "./src/main.js"
-    ]
+      "./src/main.js",
+    ],
   },
 
   mode: "development",
@@ -24,7 +24,7 @@ module.exports = {
     chunkLoadTimeout: 30000,
     // chunkFilename: "[name]-chunk.js",
     path: path.resolve(__dirname, "../dist"),
-    publicPath: "/"
+    publicPath: "/",
   },
   optimization: {
     minimize: true,
@@ -35,43 +35,44 @@ module.exports = {
         vendor: {
           name: "vendor",
           chunks: "initial",
-          minChunks: 2
-        }
-      }
-    }
+          minChunks: 2,
+        },
+      },
+    },
   },
 
   devServer: {
     contentBase: "dist",
     overlay: true,
+    devtool: "cheap-module-eval-source-map",
     hot: true,
     stats: {
-      colors: true
+      colors: true,
     },
-    historyApiFallback: true
+    historyApiFallback: true,
   },
   module: {
     rules: [
       {
         test: /\.js$/,
         use: [{ loader: "babel-loader" }],
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.css$/,
-        use: [{ loader: ExtractCssChunks.loader }, { loader: "css-loader" }]
+        use: [{ loader: ExtractCssChunks.loader }, { loader: "css-loader" }],
       },
       {
         test: /\.html$/,
         use: [
           {
-            loader: "html-loader"
-          }
-        ]
+            loader: "html-loader",
+          },
+        ],
       },
       {
         test: /\.md$/,
-        use: [{ loader: "html-loader" }, { loader: "markdown-loader" }]
+        use: [{ loader: "html-loader" }, { loader: "markdown-loader" }],
       },
 
       {
@@ -79,11 +80,11 @@ module.exports = {
         use: [
           {
             loader: "file-loader",
-            options: { name: "images/[name].[ext]" }
-          }
-        ]
-      }
-    ]
+            options: { name: "images/[name].[ext]" },
+          },
+        ],
+      },
+    ],
   },
   plugins: [
     // new BundleAnalyzerPlugin({ generateStatsFile: true }),
@@ -93,9 +94,9 @@ module.exports = {
     new webpack.DefinePlugin({
       "process.env.NODE_ENV": JSON.stringify(
         process.env.NODE_ENV || "development"
-      )
+      ),
     }),
 
-    new webpack.SourceMapDevToolPlugin()
-  ]
+    // new webpack.SourceMapDevToolPlugin()
+  ],
 };

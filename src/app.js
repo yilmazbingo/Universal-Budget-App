@@ -6,6 +6,7 @@ import { Provider } from "react-redux";
 import createStore from "./store/configureStore";
 import Favicon from "react-favicon";
 import faviconImage from "./images/budget.jpg";
+import "./firebase/firebase";
 import "normalize.css/normalize.css";
 
 const store = createStore();

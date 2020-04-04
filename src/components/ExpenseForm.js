@@ -10,17 +10,10 @@ class ExpenseForm extends Form {
       .alphanum()
       .label("Description")
       .required(),
-    amount: Joi.number()
-      .precision(2)
-      .required()
-      .label("Amount"),
-    note: Joi.string()
-      .min(5)
-      .max(100)
-      .label("Note")
+    amount: Joi.number().precision(2).required().label("Amount"),
+    note: Joi.string().min(5).max(100).label("Note"),
   });
   render() {
-    console.log("props for expense form", this.props);
     return (
       <div>
         <form action="" onSubmit={this.handleSubmit}>

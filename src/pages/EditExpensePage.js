@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import ExpenseForm from "../components/ExpenseForm";
-import { editExpense } from "../actions/expenses";
+import { editExpense, removeExpense } from "../actions/expenses";
 
 const EditExpensePage = props => {
   console.log("props in edit exense", props);
@@ -11,8 +11,19 @@ const EditExpensePage = props => {
       <h1>{props.match.params.id}</h1>
       <ExpenseForm
         expense={props.expense}
-        onSubmit={expense => console.log("expenseee", expense)}
+        onSubmit={expense => {
+          props.dispatch(editExpense(props.expense.id, expense));
+          props.history.push("/");
+        }}
       />
+      <button
+        onClick={() => {
+          props.dispatch(removeExpense({ id: props.expense.id }));
+          props.history.push("/");
+        }}
+      >
+        remove
+      </button>
     </div>
   );
 };
@@ -23,4 +34,4 @@ const mapStateToProps = (state, props) => {
     )
   };
 };
-export default connect(mapStateToProps)(withRouter(EditExpensePage));
+export default withRouter(connect(mapStateToProps)(EditExpensePage));

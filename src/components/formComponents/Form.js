@@ -39,15 +39,12 @@ export default class Form extends React.Component {
       createdAt: this.state.createdAt.valueOf(),
       note: this.state.form.note
     });
-    console.log("submitted");
   };
 
   validateProperty = ({ name, value }) => {
-    console.log("this.props", this.props);
     const object = { [name]: value };
     const schema = this.schema.extract([name]);
     const { error } = schema.validate(object);
-    console.log("error from property", error);
     return error ? error.details[0].message : null;
   };
   validate = () => {

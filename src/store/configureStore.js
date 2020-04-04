@@ -8,7 +8,7 @@ export default () => {
       expenses: expensesReducer,
       filters: filtersReducer
     }),
-    window.INITIAL_STATE
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   );
 
   return store;
