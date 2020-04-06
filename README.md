@@ -1,6 +1,7 @@
 # Universal-Budget-App
 
 - create /test directory in the root, install jest, react-test-renderer, identity-obj-proxy packages.
+- test data should be in /text/fixtures/expenses.js
 
       expect(result).toBe('value') //string,number,boolean
       expect(result).toEqual(object or array)
