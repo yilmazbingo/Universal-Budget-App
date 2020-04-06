@@ -17,7 +17,7 @@ const students = [
   { name: "ed", lastName: "eli", age: "14" },
 ];
 
-// database.ref("students").set(students);
+database.ref("students").set(students);
 database
   .ref("students")
   .once("value")
