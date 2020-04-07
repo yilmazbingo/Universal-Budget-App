@@ -3,16 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "jest": {
-    "moduleNameMapper": {
-      "\\.(css|less|sass|scss)$": "<rootDir>/__mocks__/styleMock.js",
-      "\\.(gif|ttf|eot|svg)$": "<rootDir>/__mocks__/fileMock.js"
-    }
-  },
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon  --watch src/server --watch config src/server/main.js",
     "prod": "cross-env NODE_ENV=production node src/server/main.js",
-    "test": "jest --watch",
+    "test": "jest --config=jest.config.json --watchAll",
     "heroku-postbuild": "npm run build"
   },
   "keywords": [],
@@ -81,5 +75,10 @@
     "webpack-hot-server-middleware": "^0.6.0",
     "webpack-node-externals": "^1.7.2"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "enzyme-to-json": "^3.4.4",
+    "raf": "^3.4.1"
+  }
 }
