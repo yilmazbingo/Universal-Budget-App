@@ -1,8 +1,7 @@
 import * as firebase from "firebase";
 
 const firebaseConfig = {
-  //config obhect here
-  // will add configuration later based on webpack settings
+  
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
