@@ -3,8 +3,8 @@ import moment from "moment";
 export default [
   {
     id: "1",
-    description: "first",
-    note: "",
+    description: "fijjjjjjjjrst",
+    note: "66666666666",
     amount: 1,
     createdAt: 0,
   },

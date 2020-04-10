@@ -8,10 +8,10 @@ exports[`should render ExpenseList with expenses 1`] = `
   <ExpenseListItem
     amount={1}
     createdAt={0}
-    description="first"
+    description="fijjjjjjjjrst"
     id="1"
     key="1"
-    note=""
+    note="66666666666"
   />
   <ExpenseListItem
     amount={100}
